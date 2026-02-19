@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AY Smile — Dr. Abdullah Yosri</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a2744;
+            --navy-dark: #111c33;
+            --gold: #d4a843;
+            --gold-hover: #c49a38;
+            --white: #ffffff;
+            --light: #f5f5f5;
+            --gray: #777;
+            --text: #333;
+            --border: #e0e0e0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+        body[dir="rtl"] { font-family: 'Cairo', sans-serif; }
+
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* ---------- TOPBAR ---------- */
+        .topbar {
+            background: var(--navy-dark);
+            color: rgba(255,255,255,0.7);
+            font-size: 13px;
+            padding: 8px 0;
+        }
+        .topbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .topbar a { color: rgba(255,255,255,0.7); }
+        .topbar a:hover { color: var(--gold); }
+        .topbar-contacts { display: flex; gap: 20px; }
+
+        /* ---------- HEADER ---------- */
+        .header {
+            background: var(--navy);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo { display: flex; align-items: center; gap: 10px; }
+        .logo svg { width: 44px; height: 44px; }
+        .logo-text .name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.2;
+        }
+        .logo-text .sub {
+            font-size: 0.68rem;
+            color: var(--gold);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .nav { display: flex; align-items: center; gap: 4px; }
+        .nav a {
+            color: rgba(255,255,255,0.75);
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav a:hover { color: var(--white); }
+
+        .nav .book-btn {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+        .nav .book-btn:hover { background: var(--gold-hover); }
+        body[dir="rtl"] .nav .book-btn { margin-left: 0; margin-right: 8px; }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+        }
+        .menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--white);
+            margin: 5px 0;
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            background: linear-gradient(135deg, var(--navy-dark), var(--navy));
+            padding: 80px 0;
+            color: var(--white);
+        }
+        .hero .container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        .hero-content { flex: 1; }
+        .hero-content h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 16px;
+        }
+        body[dir="rtl"] .hero-content h1 { font-weight: 800; }
+        .hero-content h1 span { color: var(--gold); }
+        .hero-content p {
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 30px;
+            max-width: 460px;
+            font-size: 15px;
+        }
+        .hero-buttons { display: flex; gap: 12px; }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 32px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            transition: background 0.2s;
+        }
+        .btn-gold { background: var(--gold); color: var(--navy); }
+        .btn-gold:hover { background: var(--gold-hover); }
+        .btn-outline-white {
+            background: transparent;
+            color: var(--white);
+            border: 1.5px solid rgba(255,255,255,0.3);
+        }
+        .btn-outline-white:hover { border-color: var(--white); }
+
+        .hero-visual { flex: 0 0 360px; text-align: center; }
+        .hero-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 50px 40px;
+            text-align: center;
+        }
+        .hero-card svg { width: 100px; height: 100px; margin: 0 auto 20px; }
+        .hero-card h3 { font-size: 1.4rem; color: var(--white); margin-bottom: 4px; }
+        .hero-card .doctor { font-size: 0.75rem; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        .hero-stat { text-align: center; }
+        .hero-stat .num { font-size: 1.5rem; font-weight: 700; color: var(--gold); }
+        .hero-stat .label { font-size: 0.7rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* ---------- SECTIONS COMMON ---------- */
+        .section { padding: 70px 0; }
+        .section-header { text-align: center; margin-bottom: 45px; }
+        .section-header h2 {
+            font-size: 1.7rem;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+        .section-header p { color: var(--gray); font-size: 14px; max-width: 500px; margin: 0 auto; }
+
+        /* ---------- ABOUT ---------- */
+        .about .container {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-image {
+            flex: 0 0 400px;
+            height: 340px;
+            background: var(--navy);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .about-image svg { width: 80px; height: 80px; opacity: 0.4; }
+        .about-badge {
+            position: absolute;
+            bottom: -16px;
+            right: -16px;
+            background: var(--gold);
+            color: var(--navy);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        body[dir="rtl"] .about-badge { right: auto; left: -16px; }
+        .about-badge .num { font-size: 1.8rem; font-weight: 700; line-height: 1; }
+        .about-badge .label { font-size: 0.6rem; font-weight: 600; text-transform: uppercase; }
+
+        .about-content h2 {
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 14px;
+        }
+        .about-content p {
+            color: var(--gray);
+            margin-bottom: 14px;
+            font-size: 14px;
+        }
+        .about-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px;
+            list-style: none;
+        }
+        .about-list li {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--navy);
+            padding: 10px 14px;
+            background: var(--light);
+            border-radius: 4px;
+        }
+
+        /* ---------- SERVICES ---------- */
+        .services { background: var(--light); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .service-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 30px 24px;
+            border: 1px solid var(--border);
+            transition: box-shadow 0.2s;
+        }
+        .service-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+        .service-card h3 {
+            font-size: 1rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+        .service-card p {
+            font-size: 13px;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* ---------- HOLLYWOOD SMILE ---------- */
+        .hollywood {
+            background: var(--navy);
+            color: var(--white);
+        }
+        .hollywood .container {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+        }
+        .hollywood-content { flex: 1; }
+        .hollywood-content h2 {
+            font-size: 1.7rem;
+            margin-bottom: 14px;
+        }
+        .hollywood-content p {
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+            margin-bottom: 14px;
+        }
+        .price-tag {
+            display: inline-block;
+            background: rgba(212,168,67,0.12);
+            border: 1px solid rgba(212,168,67,0.25);
+            padding: 12px 24px;
+            border-radius: 4px;
+            margin: 16px 0 24px;
+            font-size: 14px;
+        }
+        .price-tag .amount {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+        .price-tag .note { color: rgba(255,255,255,0.5); }
+
+        .hollywood-steps { flex: 1; }
+        .step {
+            display: flex;
+            gap: 16px;
+            padding: 20px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 6px;
+            margin-bottom: 14px;
+        }
+        .step-num {
+            width: 36px;
+            height: 36px;
+            background: var(--gold);
+            color: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        .step h4 { font-size: 14px; margin-bottom: 2px; }
+        .step p { font-size: 13px; color: rgba(255,255,255,0.45); margin: 0; }
+
+        /* ---------- TESTIMONIALS ---------- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .testimonial {
+            background: var(--light);
+            border-radius: 8px;
+            padding: 28px;
+        }
+        .stars { color: var(--gold); font-size: 14px; margin-bottom: 12px; letter-spacing: 2px; }
+        .testimonial blockquote {
+            font-size: 13px;
+            color: var(--gray);
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+        .testimonial-author { display: flex; align-items: center; gap: 10px; }
+        .author-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--navy);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .author-name { font-weight: 600; font-size: 13px; color: var(--navy); }
+        .author-role { font-size: 12px; color: var(--gray); }
+
+        /* ---------- BEFORE & AFTER ---------- */
+        .before-after { background: var(--white); }
+
+        .filter-section-inner { padding: 0 0 30px; text-align: center; }
+        .filter-tabs { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+        .filter-tab {
+            padding: 10px 24px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--gray);
+            cursor: pointer;
+            background: var(--white);
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .filter-tab:hover { border-color: var(--gold); color: var(--gold); }
+        .filter-tab.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .case-card {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--white);
+            transition: box-shadow 0.2s;
+        }
+        .case-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+
+        .case-slider {
+            position: relative;
+            height: 280px;
+            background: var(--light);
+            overflow: hidden;
+            cursor: ew-resize;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .case-before, .case-after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .case-before {
+            background: #e8e0d6;
+            clip-path: inset(0 50% 0 0);
+        }
+        .case-after {
+            background: #d6e3e8;
+        }
+
+        .case-before-inner, .case-after-inner {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 3px;
+            height: 100%;
+            background: var(--white);
+            z-index: 10;
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+        .slider-handle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: var(--white);
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .slider-handle::before {
+            content: '\2194';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 11;
+            font-size: 18px;
+            color: var(--navy);
+            pointer-events: none;
+        }
+
+        .case-labels {
+            position: absolute;
+            bottom: 12px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 16px;
+            z-index: 5;
+            pointer-events: none;
+        }
+        .case-label {
+            background: var(--navy);
+            color: var(--white);
+            padding: 4px 14px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .case-label.after-label { background: var(--gold); color: var(--navy); }
+
+        .case-info { padding: 20px; }
+        .case-info h3 { font-size: 15px; color: var(--navy); margin-bottom: 4px; }
+        .case-info p { font-size: 13px; color: var(--gray); }
+        .case-tag {
+            display: inline-block;
+            background: var(--light);
+            padding: 4px 12px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--gold-hover);
+            margin-top: 10px;
+        }
+
+        /* ---------- BOOKING ---------- */
+        .booking {
+            background: linear-gradient(135deg, var(--navy-dark), var(--navy));
+            color: var(--white);
+        }
+        .booking .container {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+        }
+        .booking-info { flex: 1; }
+        .booking-info h2 { font-size: 1.5rem; margin-bottom: 14px; }
+        .booking-info p {
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+        .contact-line {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255,255,255,0.65);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+            color: var(--gold);
+        }
+
+        .booking-form {
+            flex: 1;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            padding: 36px;
+        }
+        .booking-form h3 { font-size: 1.1rem; margin-bottom: 20px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .form-group { margin-bottom: 14px; }
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 11px 14px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 4px;
+            color: var(--white);
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus { border-color: var(--gold); }
+        .form-group select option { background: var(--navy); }
+
+        .booking-form .btn-gold { width: 100%; text-align: center; margin-top: 4px; }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            background: var(--navy-dark);
+            padding: 50px 0 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .footer-brand p {
+            color: rgba(255,255,255,0.45);
+            font-size: 13px;
+            margin-top: 14px;
+            line-height: 1.7;
+        }
+        .footer h4 {
+            color: var(--white);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 8px; }
+        .footer-links a {
+            color: rgba(255,255,255,0.45);
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 20px 0;
+            color: rgba(255,255,255,0.25);
+            font-size: 12px;
+        }
+
+        /* ---------- WHATSAPP ---------- */
+        .whatsapp {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 100;
+            background: #25d366;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(37,211,102,0.35);
+        }
+        .whatsapp svg { width: 28px; height: 28px; fill: white; }
+        body[dir="rtl"] .whatsapp { right: auto; left: 24px; }
+
+        /* ---------- LANG TOGGLE ---------- */
+        .lang-btn {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            z-index: 100;
+            background: var(--navy);
+            color: var(--gold);
+            border: 1.5px solid var(--gold);
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 13px;
+            font-family: inherit;
+        }
+        .lang-btn:hover { background: var(--gold); color: var(--navy); }
+        body[dir="rtl"] .lang-btn { left: auto; right: 24px; }
+        body[dir="rtl"] .whatsapp { right: auto; left: 84px; }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 900px) {
+            .hero .container,
+            .about .container,
+            .hollywood .container,
+            .booking .container {
+                flex-direction: column;
+            }
+            .hero-visual { display: none; }
+            .about-image { flex: none; width: 100%; height: 240px; }
+            .services-grid, .testimonials-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .cases-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .topbar { display: none; }
+            .nav { display: none; position: absolute; top: 70px; left: 0; right: 0; background: var(--navy-dark); flex-direction: column; padding: 16px; }
+            .nav.open { display: flex; }
+            .nav a { padding: 12px 16px; }
+            .nav .book-btn { margin: 4px 0 0; }
+            .menu-btn { display: block; }
+            .about-list { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 1.8rem; }
+            .case-slider { height: 220px; }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn">عر</button>
+
+    <a href="https://wa.me/201XXXXXXXXX" class="whatsapp" target="_blank">
+        <svg viewBox="0 0 32 32"><path d="M16.004 0C7.165 0 .002 7.161.002 15.997c0 2.818.737 5.574 2.138 7.998L.06 32l8.24-2.04A15.95 15.95 0 0016.004 32C24.838 32 32 24.836 32 15.997 32 7.161 24.838 0 16.004 0zm0 29.29a13.24 13.24 0 01-6.753-1.85l-.484-.288-5.018 1.316 1.34-4.89-.316-.502A13.2 13.2 0 012.71 15.997c0-7.327 5.964-13.29 13.294-13.29 7.327 0 13.287 5.963 13.287 13.29 0 7.33-5.96 13.293-13.287 13.293zm7.295-9.953c-.4-.2-2.367-1.168-2.733-1.301-.367-.134-.634-.2-.9.2-.268.4-1.034 1.301-1.268 1.568-.234.267-.467.3-.867.1s-1.69-.623-3.22-1.987c-1.19-1.062-1.993-2.374-2.227-2.774-.234-.4-.025-.616.176-.815.18-.18.4-.467.6-.7.2-.234.267-.4.4-.668.134-.267.067-.5-.033-.7-.1-.2-.9-2.168-1.234-2.968-.325-.78-.655-.674-.9-.687l-.767-.013c-.267 0-.7.1-1.067.5-.367.4-1.4 1.368-1.4 3.335 0 1.968 1.434 3.868 1.634 4.135.2.267 2.82 4.308 6.833 6.04.954.412 1.7.658 2.28.842.958.305 1.832.262 2.522.159.77-.115 2.367-.968 2.7-1.902.334-.934.334-1.734.234-1.902-.1-.167-.367-.267-.767-.467z"/></svg>
+    </a>
+
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="container">
+            <div class="topbar-contacts">
+                <a href="tel:+201XXXXXXXXX">+20 1XX XXX XXXX</a>
+                <a href="mailto:info@aysmile.com">info@aysmile.com</a>
+            </div>
+            <div>
+                <a href="#" style="margin-left:12px">Facebook</a>
+                <a href="#" style="margin-left:12px">Instagram</a>
+                <a href="#" style="margin-left:12px">TikTok</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <svg viewBox="0 0 100 100" fill="none">
+                    <path d="M30 70C30 70 20 55 20 42C20 30 28 22 38 22C44 22 48 25 50 28C52 25 56 22 62 22C72 22 80 30 80 42C80 55 70 70 70 70L50 88L30 70Z" stroke="#d4a843" stroke-width="3" fill="none"/>
+                    <path d="M38 70C38 70 28 58 28 48C28 38 34 32 42 32C46 32 49 34 50 36C51 34 54 32 58 32C66 32 72 38 72 48C72 58 62 70 62 70L50 82L38 70Z" stroke="white" stroke-width="2.5" fill="none"/>
+                    <ellipse cx="50" cy="50" rx="6" ry="6" stroke="#d4a843" stroke-width="2" fill="none"/>
+                </svg>
+                <div class="logo-text">
+                    <div class="name">AY Smile</div>
+                    <div class="sub" data-en="Dr. Abdullah Yosri" data-ar="د. عبدالله يسري">Dr. Abdullah Yosri</div>
+                </div>
+            </a>
+
+            <nav class="nav" id="nav">
+                <a href="#hero" data-en="Home" data-ar="الرئيسية">Home</a>
+                <a href="#about" data-en="About" data-ar="من نحن">About</a>
+                <a href="#services" data-en="Services" data-ar="الخدمات">Services</a>
+                <a href="#hollywood" data-en="Hollywood Smile" data-ar="هوليوود سمايل">Hollywood Smile</a>
+                <a href="#testimonials" data-en="Reviews" data-ar="الآراء">Reviews</a>
+                <a href="#before-after" data-en="Before & After" data-ar="قبل وبعد">Before &amp; After</a>
+                <a href="#booking" class="book-btn" data-en="Book Now" data-ar="احجز الآن">Book Now</a>
+            </nav>
+
+            <button class="menu-btn" onclick="document.getElementById('nav').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 data-en="Crafting Your &lt;span&gt;Perfect Smile&lt;/span&gt;" data-ar="نصمم لك &lt;span&gt;ابتسامتك المثالية&lt;/span&gt;">Crafting Your <span>Perfect Smile</span></h1>
+                <p data-en="Experience expert cosmetic dentistry with Dr. Abdullah Yosri. From Hollywood Smiles to implants — your journey to confidence starts here." data-ar="استمتع بتجربة طب أسنان تجميلي متميز مع د. عبدالله يسري. من هوليوود سمايل إلى الزراعة — رحلتك نحو الثقة تبدأ هنا.">Experience expert cosmetic dentistry with Dr. Abdullah Yosri. From Hollywood Smiles to implants — your journey to confidence starts here.</p>
+                <div class="hero-buttons">
+                    <a href="#booking" class="btn btn-gold" data-en="Book Your Visit" data-ar="احجز زيارتك">Book Your Visit</a>
+                    <a href="#services" class="btn btn-outline-white" data-en="Our Services" data-ar="خدماتنا">Our Services</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <svg viewBox="0 0 100 100" fill="none">
+                        <path d="M30 70C30 70 20 55 20 42C20 30 28 22 38 22C44 22 48 25 50 28C52 25 56 22 62 22C72 22 80 30 80 42C80 55 70 70 70 70L50 88L30 70Z" stroke="#d4a843" stroke-width="2.5" fill="none"/>
+                        <path d="M38 70C38 70 28 58 28 48C28 38 34 32 42 32C46 32 49 34 50 36C51 34 54 32 58 32C66 32 72 38 72 48C72 58 62 70 62 70L50 82L38 70Z" stroke="white" stroke-width="2" fill="none"/>
+                        <ellipse cx="50" cy="50" rx="6" ry="6" stroke="#d4a843" stroke-width="1.5" fill="none"/>
+                    </svg>
+                    <h3>AY Smile</h3>
+                    <p class="doctor" data-en="Dr. Abdullah Yosri" data-ar="د. عبدالله يسري">Dr. Abdullah Yosri</p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="num">10+</div>
+                            <div class="label" data-en="Years" data-ar="سنوات">Years</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="num">5K+</div>
+                            <div class="label" data-en="Patients" data-ar="مريض">Patients</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="num">98%</div>
+                            <div class="label" data-en="Satisfaction" data-ar="رضا">Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="about-image">
+                <svg viewBox="0 0 100 100" fill="none">
+                    <path d="M30 70C30 70 20 55 20 42C20 30 28 22 38 22C44 22 48 25 50 28C52 25 56 22 62 22C72 22 80 30 80 42C80 55 70 70 70 70L50 88L30 70Z" stroke="#d4a843" stroke-width="2" fill="none"/>
+                    <path d="M38 70C38 70 28 58 28 48C28 38 34 32 42 32C46 32 49 34 50 36C51 34 54 32 58 32C66 32 72 38 72 48C72 58 62 70 62 70L50 82L38 70Z" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none"/>
+                </svg>
+                <div class="about-badge">
+                    <div class="num">10+</div>
+                    <div class="label" data-en="Years" data-ar="سنوات">Years</div>
+                </div>
+            </div>
+            <div class="about-content">
+                <h2 data-en="Your Trusted Dental Care Partner" data-ar="شريكك الموثوق في رعاية الأسنان">Your Trusted Dental Care Partner</h2>
+                <p data-en="AY Smile Dental Clinic, led by Dr. Abdullah Yosri, provides exceptional dental care using the latest technologies and highest-quality materials." data-ar="عيادة AY Smile بقيادة د. عبدالله يسري تقدم رعاية أسنان استثنائية باستخدام أحدث التقنيات وأجود المواد.">AY Smile Dental Clinic, led by Dr. Abdullah Yosri, provides exceptional dental care using the latest technologies and highest-quality materials.</p>
+                <p data-en="Every patient receives a personalized treatment plan to ensure comfort and outstanding results." data-ar="كل مريض يحصل على خطة علاج مخصصة لضمان الراحة والنتائج المتميزة.">Every patient receives a personalized treatment plan to ensure comfort and outstanding results.</p>
+                <ul class="about-list">
+                    <li data-en="Advanced Technology" data-ar="تقنيات متقدمة">Advanced Technology</li>
+                    <li data-en="Sterilization Standards" data-ar="معايير تعقيم عالية">Sterilization Standards</li>
+                    <li data-en="Expert Team" data-ar="فريق متخصص">Expert Team</li>
+                    <li data-en="Premium Materials" data-ar="مواد عالية الجودة">Premium Materials</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-en="Our Services" data-ar="خدماتنا">Our Services</h2>
+                <p data-en="Comprehensive dental solutions tailored to your needs." data-ar="حلول أسنان شاملة مصممة لاحتياجاتك.">Comprehensive dental solutions tailored to your needs.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3 data-en="Hollywood Smile" data-ar="هوليوود سمايل">Hollywood Smile</h3>
+                    <p data-en="Premium veneers and personalized smile design for a stunning, natural-looking result." data-ar="قشور أسنان متميزة وتصميم ابتسامة مخصص للحصول على نتيجة طبيعية مذهلة.">Premium veneers and personalized smile design for a stunning, natural-looking result.</p>
+                </div>
+                <div class="service-card">
+                    <h3 data-en="Dental Implants" data-ar="زراعة الأسنان">Dental Implants</h3>
+                    <p data-en="Replace missing teeth with implants that look, feel, and function like natural teeth." data-ar="استبدل الأسنان المفقودة بزراعات تبدو وتعمل مثل الأسنان الطبيعية.">Replace missing teeth with implants that look, feel, and function like natural teeth.</p>
+                </div>
+                <div class="service-card">
+                    <h3 data-en="Teeth Whitening" data-ar="تبييض الأسنان">Teeth Whitening</h3>
+                    <p data-en="Professional whitening for dramatically brighter, whiter teeth in a single visit." data-ar="تبييض احترافي للحصول على أسنان أكثر بياضاً وإشراقاً في زيارة واحدة.">Professional whitening for dramatically brighter, whiter teeth in a single visit.</p>
+                </div>
+                <div class="service-card">
+                    <h3 data-en="Dental Braces" data-ar="تقويم الأسنان">Dental Braces</h3>
+                    <p data-en="Modern orthodontic solutions to correct alignment and achieve a straight smile." data-ar="حلول تقويم حديثة لتصحيح الانتظام والحصول على ابتسامة مستقيمة.">Modern orthodontic solutions to correct alignment and achieve a straight smile.</p>
+                </div>
+                <div class="service-card">
+                    <h3 data-en="Root Canal Treatment" data-ar="علاج الجذور">Root Canal Treatment</h3>
+                    <p data-en="Pain-free endodontic care with microscope-assisted techniques for precise treatment." data-ar="علاج جذور بدون ألم بتقنيات المجهر للعلاج الدقيق والفعال.">Pain-free endodontic care with microscope-assisted techniques for precise treatment.</p>
+                </div>
+                <div class="service-card">
+                    <h3 data-en="Pediatric Dentistry" data-ar="طب أسنان الأطفال">Pediatric Dentistry</h3>
+                    <p data-en="Gentle, child-friendly dental care in a warm and welcoming environment." data-ar="رعاية أسنان لطيفة ومناسبة للأطفال في بيئة دافئة ومرحبة.">Gentle, child-friendly dental care in a warm and welcoming environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hollywood Smile -->
+    <section class="hollywood section" id="hollywood">
+        <div class="container">
+            <div class="hollywood-content">
+                <h2 data-en="Hollywood Smile" data-ar="هوليوود سمايل">Hollywood Smile</h2>
+                <p data-en="A complete smile makeover using premium veneers, whitening, and digital smile design to create the perfect smile you've always wanted." data-ar="تغيير كامل للابتسامة باستخدام قشور متميزة والتبييض وتصميم الابتسامة الرقمي لابتسامة مثالية.">A complete smile makeover using premium veneers, whitening, and digital smile design to create the perfect smile you've always wanted.</p>
+                <div class="price-tag">
+                    <span class="note" data-en="Starting from " data-ar="يبدأ من ">Starting from </span>
+                    <span class="amount">XX,XXX</span>
+                    <span class="note" data-en=" EGP / jaw" data-ar=" ج.م / فك"> EGP / jaw</span>
+                </div>
+                <br>
+                <a href="#booking" class="btn btn-gold" data-en="Book Consultation" data-ar="احجز استشارة">Book Consultation</a>
+            </div>
+            <div class="hollywood-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div>
+                        <h4 data-en="Consultation & Evaluation" data-ar="الاستشارة والتقييم">Consultation &amp; Evaluation</h4>
+                        <p data-en="Comprehensive exam and personalized smile planning." data-ar="فحص شامل وتخطيط ابتسامة مخصص.">Comprehensive exam and personalized smile planning.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div>
+                        <h4 data-en="Digital Smile Design" data-ar="تصميم الابتسامة الرقمي">Digital Smile Design</h4>
+                        <p data-en="Preview your new smile using advanced digital imaging." data-ar="شاهد ابتسامتك الجديدة بالتصوير الرقمي المتقدم.">Preview your new smile using advanced digital imaging.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div>
+                        <h4 data-en="Preparation & Fitting" data-ar="التحضير والتركيب">Preparation &amp; Fitting</h4>
+                        <p data-en="Precision placement of custom-made veneers or crowns." data-ar="تركيب دقيق لقشور أو تيجان مصنوعة خصيصاً.">Precision placement of custom-made veneers or crowns.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div>
+                        <h4 data-en="Your New Smile" data-ar="ابتسامتك الجديدة">Your New Smile</h4>
+                        <p data-en="Walk out with a smile you'll love." data-ar="اخرج بابتسامة تحبها.">Walk out with a smile you'll love.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials section" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-en="What Our Patients Say" data-ar="آراء مرضانا">What Our Patients Say</h2>
+                <p data-en="Real stories from patients who trusted us with their smiles." data-ar="قصص حقيقية من مرضى وثقوا بنا.">Real stories from patients who trusted us with their smiles.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <blockquote data-en="Dr. Abdullah was incredibly professional. My Hollywood Smile exceeded my expectations completely." data-ar="د. عبدالله كان محترفاً بشكل لا يصدق. هوليوود سمايل تجاوزت توقعاتي تماماً.">Dr. Abdullah was incredibly professional. My Hollywood Smile exceeded my expectations completely.</blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div>
+                            <div class="author-name" data-en="Sarah M." data-ar="سارة م.">Sarah M.</div>
+                            <div class="author-role" data-en="Hollywood Smile" data-ar="هوليوود سمايل">Hollywood Smile</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <blockquote data-en="The clinic is spotless and modern. I felt completely at ease during my implant procedure. Highly recommended." data-ar="العيادة نظيفة وحديثة. شعرت بالراحة التامة أثناء عملية الزراعة. أنصح بها بشدة.">The clinic is spotless and modern. I felt completely at ease during my implant procedure. Highly recommended.</blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div>
+                            <div class="author-name" data-en="Ahmed K." data-ar="أحمد ك.">Ahmed K.</div>
+                            <div class="author-role" data-en="Dental Implants" data-ar="زراعة الأسنان">Dental Implants</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <blockquote data-en="My children love visiting AY Smile. The staff is patient and kind with kids. Excellent pediatric care." data-ar="أطفالي يحبون زيارة AY Smile. الموظفون صبورون ولطيفون. رعاية أطفال ممتازة.">My children love visiting AY Smile. The staff is patient and kind with kids. Excellent pediatric care.</blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">N</div>
+                        <div>
+                            <div class="author-name" data-en="Nour H." data-ar="نور ح.">Nour H.</div>
+                            <div class="author-role" data-en="Pediatric Dentistry" data-ar="طب أسنان الأطفال">Pediatric Dentistry</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before & After -->
+    <section class="before-after section" id="before-after">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-en="Before &amp; After" data-ar="قبل وبعد">Before &amp; After</h2>
+                <p data-en="See the real results from our patients' smile transformations." data-ar="شاهد النتائج الحقيقية لتحولات ابتسامات مرضانا.">See the real results from our patients' smile transformations.</p>
+            </div>
+
+            <div class="filter-section-inner">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all" data-en="All Cases" data-ar="جميع الحالات">All Cases</button>
+                    <button class="filter-tab" data-filter="hollywood" data-en="Hollywood Smile" data-ar="هوليوود سمايل">Hollywood Smile</button>
+                    <button class="filter-tab" data-filter="implants" data-en="Implants" data-ar="زراعة">Implants</button>
+                    <button class="filter-tab" data-filter="whitening" data-en="Whitening" data-ar="تبييض">Whitening</button>
+                    <button class="filter-tab" data-filter="braces" data-en="Braces" data-ar="تقويم">Braces</button>
+                    <button class="filter-tab" data-filter="veneers" data-en="Veneers" data-ar="قشور">Veneers</button>
+                </div>
+            </div>
+
+            <div class="cases-grid">
+
+                <div class="case-card" data-category="hollywood">
+                    <div class="case-slider">
+                        <div class="case-after"><div class="case-after-inner" data-en="After photo placeholder" data-ar="صورة بعد العلاج">After photo placeholder</div></div>
+                        <div class="case-before"><div class="case-before-inner" data-en="Before photo placeholder" data-ar="صورة قبل العلاج">Before photo placeholder</div></div>
+                        <div class="slider-handle"></div>
+                        <div class="case-labels">
+                            <span class="case-label" data-en="Before" data-ar="قبل">Before</span>
+                            <span class="case-label after-label" data-en="After" data-ar="بعد">After</span>
+                        </div>
+                    </div>
+                    <div class="case-info">
+                        <h3 data-en="Hollywood Smile — Full Makeover" data-ar="هوليوود سمايل — تغيير كامل">Hollywood Smile — Full Makeover</h3>
+                        <p data-en="Complete upper and lower jaw restoration with premium veneers." data-ar="ترميم كامل للفك العلوي والسفلي بقشور متميزة.">Complete upper and lower jaw restoration with premium veneers.</p>
+                        <span class="case-tag" data-en="Hollywood Smile" data-ar="هوليوود سمايل">Hollywood Smile</span>
+                    </div>
+                </div>
+
+                <div class="case-card" data-category="implants">
+                    <div class="case-slider">
+                        <div class="case-after"><div class="case-after-inner" data-en="After photo placeholder" data-ar="صورة بعد العلاج">After photo placeholder</div></div>
+                        <div class="case-before"><div class="case-before-inner" data-en="Before photo placeholder" data-ar="صورة قبل العلاج">Before photo placeholder</div></div>
+                        <div class="slider-handle"></div>
+                        <div class="case-labels">
+                            <span class="case-label" data-en="Before" data-ar="قبل">Before</span>
+                            <span class="case-label after-label" data-en="After" data-ar="بعد">After</span>
+                        </div>
+                    </div>
+                    <div class="case-info">
+                        <h3 data-en="Dental Implants — Front Teeth" data-ar="زراعة أسنان — الأسنان الأمامية">Dental Implants — Front Teeth</h3>
+                        <p data-en="Replacement of two front teeth with natural-looking implants." data-ar="استبدال سنين أماميين بزراعات طبيعية المظهر.">Replacement of two front teeth with natural-looking implants.</p>
+                        <span class="case-tag" data-en="Implants" data-ar="زراعة">Implants</span>
+                    </div>
+                </div>
+
+                <div class="case-card" data-category="whitening">
+                    <div class="case-slider">
+                        <div class="case-after"><div class="case-after-inner" data-en="After photo placeholder" data-ar="صورة بعد العلاج">After photo placeholder</div></div>
+                        <div class="case-before"><div class="case-before-inner" data-en="Before photo placeholder" data-ar="صورة قبل العلاج">Before photo placeholder</div></div>
+                        <div class="slider-handle"></div>
+                        <div class="case-labels">
+                            <span class="case-label" data-en="Before" data-ar="قبل">Before</span>
+                            <span class="case-label after-label" data-en="After" data-ar="بعد">After</span>
+                        </div>
+                    </div>
+                    <div class="case-info">
+                        <h3 data-en="Professional Teeth Whitening" data-ar="تبييض أسنان احترافي">Professional Teeth Whitening</h3>
+                        <p data-en="In-office whitening session with visible improvement in one visit." data-ar="جلسة تبييض بالعيادة مع تحسن واضح في زيارة واحدة.">In-office whitening session with visible improvement in one visit.</p>
+                        <span class="case-tag" data-en="Whitening" data-ar="تبييض">Whitening</span>
+                    </div>
+                </div>
+
+                <div class="case-card" data-category="veneers">
+                    <div class="case-slider">
+                        <div class="case-after"><div class="case-after-inner" data-en="After photo placeholder" data-ar="صورة بعد العلاج">After photo placeholder</div></div>
+                        <div class="case-before"><div class="case-before-inner" data-en="Before photo placeholder" data-ar="صورة قبل العلاج">Before photo placeholder</div></div>
+                        <div class="slider-handle"></div>
+                        <div class="case-labels">
+                            <span class="case-label" data-en="Before" data-ar="قبل">Before</span>
+                            <span class="case-label after-label" data-en="After" data-ar="بعد">After</span>
+                        </div>
+                    </div>
+                    <div class="case-info">
+                        <h3 data-en="Porcelain Veneers — Upper Jaw" data-ar="قشور بورسلين — الفك العلوي">Porcelain Veneers — Upper Jaw</h3>
+                        <p data-en="8 porcelain veneers to correct shape, color, and alignment." data-ar="٨ قشور بورسلين لتصحيح الشكل واللون والمحاذاة.">8 porcelain veneers to correct shape, color, and alignment.</p>
+                        <span class="case-tag" data-en="Veneers" data-ar="قشور">Veneers</span>
+                    </div>
+                </div>
+
+                <div class="case-card" data-category="braces">
+                    <div class="case-slider">
+                        <div class="case-after"><div class="case-after-inner" data-en="After photo placeholder" data-ar="صورة بعد العلاج">After photo placeholder</div></div>
+                        <div class="case-before"><div class="case-before-inner" data-en="Before photo placeholder" data-ar="صورة قبل العلاج">Before photo placeholder</div></div>
+                        <div class="slider-handle"></div>
+                        <div class="case-labels">
+                            <span class="case-label" data-en="Before" data-ar="قبل">Before</span>
+                            <span class="case-label after-label" data-en="After" data-ar="بعد">After</span>
+                        </div>
+                    </div>
+                    <div class="case-info">
+                        <h3 data-en="Orthodontic Treatment — 14 Months" data-ar="علاج تقويم — ١٤ شهر">Orthodontic Treatment — 14 Months</h3>
+                        <p data-en="Full braces treatment correcting crowding and bite alignment." data-ar="علاج تقويم كامل لتصحيح الازدحام ومحاذاة العضة.">Full braces treatment correcting crowding and bite alignment.</p>
+                        <span class="case-tag" data-en="Braces" data-ar="تقويم">Braces</span>
+                    </div>
+                </div>
+
+                <div class="case-card" data-category="hollywood">
+                    <div class="case-slider">
+                        <div class="case-after"><div class="case-after-inner" data-en="After photo placeholder" data-ar="صورة بعد العلاج">After photo placeholder</div></div>
+                        <div class="case-before"><div class="case-before-inner" data-en="Before photo placeholder" data-ar="صورة قبل العلاج">Before photo placeholder</div></div>
+                        <div class="slider-handle"></div>
+                        <div class="case-labels">
+                            <span class="case-label" data-en="Before" data-ar="قبل">Before</span>
+                            <span class="case-label after-label" data-en="After" data-ar="بعد">After</span>
+                        </div>
+                    </div>
+                    <div class="case-info">
+                        <h3 data-en="Hollywood Smile — Upper Jaw" data-ar="هوليوود سمايل — الفك العلوي">Hollywood Smile — Upper Jaw</h3>
+                        <p data-en="10 veneers on upper jaw for a brighter, more symmetrical smile." data-ar="١٠ قشور على الفك العلوي لابتسامة أكثر إشراقاً وتناسقاً.">10 veneers on upper jaw for a brighter, more symmetrical smile.</p>
+                        <span class="case-tag" data-en="Hollywood Smile" data-ar="هوليوود سمايل">Hollywood Smile</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking -->
+    <section class="booking section" id="booking">
+        <div class="container">
+            <div class="booking-info">
+                <h2 data-en="Book Your Appointment" data-ar="احجز موعدك">Book Your Appointment</h2>
+                <p data-en="Schedule your consultation today. We're here to guide you every step of the way." data-ar="حدد موعد استشارتك اليوم. نحن هنا لإرشادك في كل خطوة.">Schedule your consultation today. We're here to guide you every step of the way.</p>
+                <div class="contact-line">
+                    <div class="contact-icon">&#9742;</div>
+                    <span>+20 1XX XXX XXXX</span>
+                </div>
+                <div class="contact-line">
+                    <div class="contact-icon">&#9993;</div>
+                    <span>info@aysmile.com</span>
+                </div>
+                <div class="contact-line">
+                    <div class="contact-icon">&#9899;</div>
+                    <span data-en="[Clinic Address], Cairo, Egypt" data-ar="[عنوان العيادة]، القاهرة، مصر">[Clinic Address], Cairo, Egypt</span>
+                </div>
+                <div class="contact-line">
+                    <div class="contact-icon">&#9200;</div>
+                    <span data-en="Daily 12 PM - 11 PM | Fri 3 PM - 11 PM" data-ar="يومياً ١٢ م - ١١ م | الجمعة ٣ م - ١١ م">Daily 12 PM - 11 PM | Fri 3 PM - 11 PM</span>
+                </div>
+            </div>
+
+            <div class="booking-form">
+                <h3 data-en="Send a Booking Request" data-ar="أرسل طلب حجز">Send a Booking Request</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-en="Name" data-ar="الاسم">Name</label>
+                        <input type="text" placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label data-en="Phone" data-ar="الهاتف">Phone</label>
+                        <input type="tel" placeholder="Your phone">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label data-en="Email" data-ar="البريد الإلكتروني">Email</label>
+                    <input type="email" placeholder="Your email">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-en="Service" data-ar="الخدمة">Service</label>
+                        <select>
+                            <option data-en="Choose a service" data-ar="اختر الخدمة">Choose a service</option>
+                            <option data-en="Hollywood Smile" data-ar="هوليوود سمايل">Hollywood Smile</option>
+                            <option data-en="Dental Implants" data-ar="زراعة الأسنان">Dental Implants</option>
+                            <option data-en="Teeth Whitening" data-ar="تبييض الأسنان">Teeth Whitening</option>
+                            <option data-en="Dental Braces" data-ar="تقويم الأسنان">Dental Braces</option>
+                            <option data-en="Root Canal" data-ar="علاج الجذور">Root Canal</option>
+                            <option data-en="Pediatric Dentistry" data-ar="طب أسنان الأطفال">Pediatric Dentistry</option>
+                            <option data-en="Other" data-ar="أخرى">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label data-en="Preferred Day" data-ar="اليوم المفضل">Preferred Day</label>
+                        <select>
+                            <option data-en="Choose a day" data-ar="اختر اليوم">Choose a day</option>
+                            <option data-en="Saturday" data-ar="السبت">Saturday</option>
+                            <option data-en="Sunday" data-ar="الأحد">Sunday</option>
+                            <option data-en="Monday" data-ar="الاثنين">Monday</option>
+                            <option data-en="Tuesday" data-ar="الثلاثاء">Tuesday</option>
+                            <option data-en="Wednesday" data-ar="الأربعاء">Wednesday</option>
+                            <option data-en="Thursday" data-ar="الخميس">Thursday</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label data-en="Message" data-ar="رسالتك">Message</label>
+                    <textarea rows="3" placeholder="Any notes..."></textarea>
+                </div>
+                <button class="btn btn-gold" data-en="Send Request" data-ar="أرسل الطلب">Send Request</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <svg viewBox="0 0 100 100" fill="none" style="width:40px;height:40px;">
+                            <path d="M30 70C30 70 20 55 20 42C20 30 28 22 38 22C44 22 48 25 50 28C52 25 56 22 62 22C72 22 80 30 80 42C80 55 70 70 70 70L50 88L30 70Z" stroke="#d4a843" stroke-width="3" fill="none"/>
+                            <path d="M38 70C38 70 28 58 28 48C28 38 34 32 42 32C46 32 49 34 50 36C51 34 54 32 58 32C66 32 72 38 72 48C72 58 62 70 62 70L50 82L38 70Z" stroke="white" stroke-width="2" fill="none"/>
+                        </svg>
+                        <div class="logo-text">
+                            <div class="name">AY Smile</div>
+                            <div class="sub">Dr. Abdullah Yosri</div>
+                        </div>
+                    </a>
+                    <p data-en="Premium dental care with the latest technology. Your comfort and confidence are our priority." data-ar="رعاية أسنان متميزة بأحدث التقنيات. راحتك وثقتك هي أولويتنا.">Premium dental care with the latest technology. Your comfort and confidence are our priority.</p>
+                </div>
+                <div>
+                    <h4 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hero" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                        <li><a href="#about" data-en="About" data-ar="من نحن">About</a></li>
+                        <li><a href="#services" data-en="Services" data-ar="الخدمات">Services</a></li>
+                        <li><a href="#before-after" data-en="Before & After" data-ar="قبل وبعد">Before &amp; After</a></li>
+                        <li><a href="#booking" data-en="Book Now" data-ar="احجز الآن">Book Now</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 data-en="Services" data-ar="الخدمات">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" data-en="Hollywood Smile" data-ar="هوليوود سمايل">Hollywood Smile</a></li>
+                        <li><a href="#" data-en="Dental Implants" data-ar="زراعة الأسنان">Dental Implants</a></li>
+                        <li><a href="#" data-en="Teeth Whitening" data-ar="تبييض الأسنان">Teeth Whitening</a></li>
+                        <li><a href="#" data-en="Dental Braces" data-ar="تقويم الأسنان">Dental Braces</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 data-en="Contact" data-ar="تواصل معنا">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+201XXXXXXXXX">+20 1XX XXX XXXX</a></li>
+                        <li><a href="mailto:info@aysmile.com">info@aysmile.com</a></li>
+                        <li><a href="#" data-en="[Address], Cairo" data-ar="[العنوان]، القاهرة">[Address], Cairo</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom" data-en="&copy; 2025 AY Smile. All Rights Reserved." data-ar="&copy; ٢٠٢٥ AY Smile. جميع الحقوق محفوظة.">&copy; 2025 AY Smile. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        let lang = 'en';
+        function toggleLang() {
+            lang = lang === 'en' ? 'ar' : 'en';
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            document.getElementById('langBtn').textContent = lang === 'ar' ? 'EN' : 'عر';
+
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const val = el.getAttribute('data-' + lang);
+                if (val) {
+                    if (val.includes('<')) el.innerHTML = val;
+                    else el.textContent = val;
+                }
+            });
+
+            document.querySelectorAll('input[placeholder], textarea[placeholder]').forEach(el => {
+                if (lang === 'ar') {
+                    el.setAttribute('placeholder', el.getAttribute('data-ar-placeholder') || el.placeholder);
+                }
+            });
+        }
+
+        // Mobile menu
+        document.querySelector('.menu-btn').addEventListener('click', () => {
+            document.getElementById('nav').classList.toggle('open');
+        });
+
+        // Filter tabs
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const filter = tab.dataset.filter;
+                document.querySelectorAll('.case-card').forEach(card => {
+                    card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+                });
+            });
+        });
+
+        // Before/After slider
+        document.querySelectorAll('.case-slider').forEach(slider => {
+            let isDragging = false;
+
+            function updateSlider(e, slider) {
+                const rect = slider.getBoundingClientRect();
+                let x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+                x = Math.max(0, Math.min(x, rect.width));
+                const pct = (x / rect.width) * 100;
+                const before = slider.querySelector('.case-before');
+                const handle = slider.querySelector('.slider-handle');
+                before.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+                handle.style.left = pct + '%';
+            }
+
+            slider.addEventListener('mousedown', (e) => { isDragging = true; updateSlider(e, slider); });
+            slider.addEventListener('touchstart', (e) => { isDragging = true; updateSlider(e, slider); }, { passive: true });
+            document.addEventListener('mousemove', (e) => { if (isDragging) updateSlider(e, slider); });
+            document.addEventListener('touchmove', (e) => { if (isDragging) updateSlider(e, slider); }, { passive: true });
+            document.addEventListener('mouseup', () => { isDragging = false; });
+            document.addEventListener('touchend', () => { isDragging = false; });
+        });
+    </script>
+</body>
+</html>
